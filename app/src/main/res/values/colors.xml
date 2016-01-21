@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="app_black">#dd1b1b1b</color>
+    <color name="deep_gray">#ff707070</color>
+    <color name="light_gray">#ffa0a0a0</color>
+    <color name="btn_gray">#F4F4F4</color>
+
+    <color name="cell_gray">#ffeeeeee</color>
+    <color name="back_gray">#ffeeeeee</color>
+    <color name="light_blue">#0198ee</color>
+    <color name="navigation_bar_default">#f8b0cf</color>
+    <color name="orange">#ffea9e49</color>
+    <color name="pure_red">#fffd5c02</color>
+    <color name="btn_search_normal">#eeeeee</color>
+    <color name="btn_search_shadow">#ffbc9c22</color>
+    <color name="btn_search_solid">#b5b5b5</color>
+    <color name="light_gray_small">#ffd0d0d0</color>
+    <color name="num_color">#FBB551</color>
+    <color name="title_color">#1B1B1B</color>
+    <color name="transparent">#00000000</color>
+
+</resources>

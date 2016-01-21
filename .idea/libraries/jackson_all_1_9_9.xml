@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jackson-all-1.9.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/jackson-all-1.9.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
