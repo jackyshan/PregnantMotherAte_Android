@@ -7,13 +7,10 @@ import com.jackyshan.www.pregnantmotherate.General.Base.BaseModel;
 /**
  * Created by jackyshan on 1/21/16.
  */
-@Table(name = "CB_WomanRecipe")
+@Table(name = "CB_WomanRecipe", id = "id")
 public class RecipeModel extends BaseModel{
     @Column(name = "id")
-    public int recipeId;
-
-    @Column(name = "star")
-    public boolean star;
+    public int id;
 
     @Column(name = "name")
     public String name;
@@ -24,8 +21,17 @@ public class RecipeModel extends BaseModel{
     @Column(name = "steps")
     public String steps;
 
+    @Column(name = "prompt")
+    public String prompt;
+
     @Column(name = "photo")
     public String photo;
+
+    @Column(name = "suberPhoto")
+    public String suberPhoto;
+
+    @Column(name = "type")
+    public boolean type;
 
     @Column(name = "month")
     public String month;
@@ -33,7 +39,6 @@ public class RecipeModel extends BaseModel{
     @Column(name = "suberName")
     public String suberName;
 
-    public RecipeModel() {
-        super();
-    }
+    @Column(name = "star")
+    public boolean star;
 }

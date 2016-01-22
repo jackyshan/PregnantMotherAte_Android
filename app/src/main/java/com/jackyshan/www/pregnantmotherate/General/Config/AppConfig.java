@@ -11,6 +11,8 @@ import android.os.Parcelable;
 
 import com.jackyshan.www.pregnantmotherate.General.singleton.AppContext;
 import com.jackyshan.www.pregnantmotherate.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.io.File;
 
@@ -45,6 +47,10 @@ public class AppConfig {
         context  = AppContext.getInstance();
         userInfo = context.getSharedPreferences("Info_Config", 0);
         setUserDefault(flag_isLog, true);
+
+
+        //Android-Universal-Image-Loader 第三方图片库初始化
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
 
         //桌面图标
         addShortcut();

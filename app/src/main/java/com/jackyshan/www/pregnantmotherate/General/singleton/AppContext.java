@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by jackyshan on 15/5/8.
  */
-public class AppContext extends com.activeandroid.app.Application {
+public class AppContext extends Application {
     private static AppContext instance;
     private List<Activity> activityList;
 
@@ -28,7 +28,7 @@ public class AppContext extends com.activeandroid.app.Application {
         super.onCreate();
 
         //init database
-        ActiveAndroid.initialize(this);
+        ActiveAndroid.initialize(this, true);
 
         //实例
         instance = this;

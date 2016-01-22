@@ -11,7 +11,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/navigationbar_iv_left" android:src="@drawable/navigationbar_back"
+                android:id="@+id/navigationbar_iv_left" android:src="@mipmap/navigationbar_back"
                 android:scaleType="center"/>
         <TextView
                 android:layout_width="match_parent"

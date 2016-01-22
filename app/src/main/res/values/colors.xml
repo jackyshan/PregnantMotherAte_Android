@@ -22,4 +22,8 @@
     <color name="title_color">#1B1B1B</color>
     <color name="transparent">#00000000</color>
 
+    <!--文字颜色-->
+    <color name="color_t1">#f8b0cf</color>
+    <color name="color_t2">#7c7c7d</color>
+
 </resources>

@@ -13,7 +13,7 @@ public class DataBaseServer {
     public static List<RecipeModel> selectRecipes(String month) {
         return  new Select()
                 .from(RecipeModel.class)
-//                .where("month = ?", month)
+                .where("month = ?", month)
                 .execute();
     }
 }

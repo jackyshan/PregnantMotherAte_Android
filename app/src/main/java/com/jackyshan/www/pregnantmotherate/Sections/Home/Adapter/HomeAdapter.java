@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jackyshan.www.pregnantmotherate.General.Helper.ImageHelper;
 import com.jackyshan.www.pregnantmotherate.R;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Model.RecipeModel;
 
@@ -67,7 +68,8 @@ public class HomeAdapter extends BaseAdapter {
         }
 
         RecipeModel model = list.get(position);
-//        holder.iconImgV.setImageBitmap();
+
+        ImageHelper.displayFromAssetsRecipe(model.photo, holder.iconImgV);
         holder.recipeTitle.setText(model.name);
         holder.recipeDetail.setText(model.suberName);
 
