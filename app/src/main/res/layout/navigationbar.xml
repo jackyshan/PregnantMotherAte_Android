@@ -1,44 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="45dp" android:background="@color/navigation_bar_default">
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/navigation_bar_default"
+    android:orientation="horizontal">
 
     <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1" android:id="@+id/navigationbar_fl_left">
+        android:id="@+id/navigationbar_fl_left"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/navigationbar_iv_left" android:src="@mipmap/navigationbar_back"
-                android:scaleType="center"/>
+            android:id="@+id/navigationbar_iv_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/navigationbar_back" />
+
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/navigationbar_tv_left" android:gravity="center_vertical" android:textSize="16sp"
-                android:paddingLeft="10dp" android:textColor="@color/white"/>
+            android:id="@+id/navigationbar_tv_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </FrameLayout>
+
     <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="3" android:id="@+id/navigationbar_fl_middle">
+        android:id="@+id/navigationbar_fl_middle"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/navigationbar_tv_middle" android:padding="5dp" android:textSize="20sp" android:gravity="center"
-                android:textColor="@color/white" android:text="title"/>
+            android:id="@+id/navigationbar_tv_middle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="title"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </FrameLayout>
+
     <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="fill_parent" android:layout_weight="1" android:id="@+id/navigationbar_fl_right">
+        android:id="@+id/navigationbar_fl_right"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/navigationbar_iv_right"/>
+            android:id="@+id/navigationbar_iv_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center" />
+
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/navigationbar_tv_right" android:gravity="center_vertical|right" android:paddingRight="10dp"
-                android:textSize="16sp" android:textColor="@color/white"/>
+            android:id="@+id/navigationbar_tv_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </FrameLayout>
 </LinearLayout>

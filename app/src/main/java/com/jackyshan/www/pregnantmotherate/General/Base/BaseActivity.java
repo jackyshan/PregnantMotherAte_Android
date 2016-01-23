@@ -2,6 +2,7 @@ package com.jackyshan.www.pregnantmotherate.General.Base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
@@ -88,6 +89,23 @@ public class BaseActivity extends FragmentActivity {
 
     protected void setLeftGone() {
         navigationBar.setLeftGone();
+        navigationBar.setOnLeftClickListener(null);
+    }
+
+    protected void setLeftImage (int resID) {
+        navigationBar.setLeftImageRes(resID);
+    }
+
+    protected void setLeftClick (NavigationBar.OnLeftClickListener listener){
+        navigationBar.setOnLeftClickListener(listener);
+    }
+
+    protected void setRightImage (int resID) {
+        navigationBar.setRightImageRes(resID);
+    }
+
+    protected void setRightClick (NavigationBar.OnRightClickListener listener){
+        navigationBar.setOnRightClickListener(listener);
     }
 
     protected void showToast(String text) {

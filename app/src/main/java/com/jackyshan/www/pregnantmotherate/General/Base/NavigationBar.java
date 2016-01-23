@@ -66,8 +66,8 @@ public class NavigationBar extends FrameLayout {
 
         fl_left = (FrameLayout) findViewById(R.id.navigationbar_fl_left);
         fl_middle = (FrameLayout) findViewById(R.id.navigationbar_fl_middle);
-        fl_right = (FrameLayout) findViewById(R.id.navigationbar_fl_right);
 
+        fl_right = (FrameLayout) findViewById(R.id.navigationbar_fl_right);
         iv_left = (ImageView) findViewById(R.id.navigationbar_iv_left);
         iv_right = (ImageView) findViewById(R.id.navigationbar_iv_right);
 

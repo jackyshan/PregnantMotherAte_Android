@@ -27,7 +27,7 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     private LayoutInflater mInflater = null;
-    private List<RecipeModel> list;
+    public List<RecipeModel> list;
 
     public HomeAdapter(Context context, List<RecipeModel> list) {
         this.mInflater = LayoutInflater.from(context);

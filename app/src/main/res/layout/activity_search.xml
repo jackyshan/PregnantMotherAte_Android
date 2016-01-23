@@ -11,6 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <EditText
+        android:textColor="@color/color_t1"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:background="@color/btn_gray"
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center" />
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"

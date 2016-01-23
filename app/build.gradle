@@ -19,18 +19,19 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-}
+//repositories {
+//    mavenCentral()
+//    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+//}
 
 
 dependencies {
-    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+//    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/volley.jar')
     compile files('libs/jackson-all-1.9.9.jar')
     compile files('libs/universal-image-loader-1.9.5.jar')
+    compile files('libs/activeandroid-3.1.0-SNAPSHOT.jar')
 }
