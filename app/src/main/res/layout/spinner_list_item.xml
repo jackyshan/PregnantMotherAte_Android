@@ -9,8 +9,7 @@
         android:id="@+id/tv_detail"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:textAlignment="center"
-        android:layout_gravity="center_vertical"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="18sp" />
 

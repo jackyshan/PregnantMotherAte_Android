@@ -104,6 +104,62 @@ public class ProjectHelper {
                         put("detailTitle", "7月");
                     }
                 });
+                add(new HashMap() {
+
+                    {
+                        put("type", 0);
+                        put("title", "8");
+                        put("detailTitle", "8月");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 0);
+                        put("title", "9");
+                        put("detailTitle", "9月");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 0);
+                        put("title", "10");
+                        put("detailTitle", "10月");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 1);
+                        put("title", "优生食谱");
+                        put("detailTitle", "优生食谱");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 1);
+                        put("title", "补血食谱");
+                        put("detailTitle", "补血食谱");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 1);
+                        put("title", "孕妇补维生素食谱");
+                        put("detailTitle", "孕妇补维生素食谱");
+                    }
+                });
+                add(new HashMap() {
+
+                    {
+                        put("type", 1);
+                        put("title", "缓解孕吐食谱");
+                        put("detailTitle", "缓解孕吐食谱");
+                    }
+                });
             }
         };
         return ChoiseModel.arrayfromArrayList(list);

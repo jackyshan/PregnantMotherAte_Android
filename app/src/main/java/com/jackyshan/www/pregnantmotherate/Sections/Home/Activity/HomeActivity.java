@@ -135,6 +135,11 @@ public class HomeActivity extends BaseActivity {
             }
             break;
             default:
+            {
+                recipeModelList = DataBaseServer.selectOtherRecipes(model.title);
+                homeAdapter.list = recipeModelList;
+                homeAdapter.notifyDataSetChanged();
+            }
                 break;
         }
     }

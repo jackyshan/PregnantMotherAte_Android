@@ -18,6 +18,13 @@ public class DataBaseServer {
                 .execute();
     }
 
+    public static List<RecipeModel> selectOtherRecipes(String title) {
+        return  new Select()
+                .from(RecipeModel.class)
+                .where("type = ?", title)
+                .execute();
+    }
+
     public static void updateStarRecipe(RecipeModel model) {
         RecipeModel recipeModel = RecipeModel.load(RecipeModel.class, model.id);
         recipeModel.star = model.star;
