@@ -26,4 +26,7 @@
     <color name="color_t1">#f8b0cf</color>
     <color name="color_t2">#7c7c7d</color>
 
+    <!--背景颜色-->
+    <color name="color_b1">#f8b0cf</color>
+
 </resources>

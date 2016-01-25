@@ -83,7 +83,6 @@ public class SearchActivity extends BaseActivity {
                     @Override
                     public void run() {
                         list = DataBaseServer.selectSearchRecipes(editable.toString());
-                        logMsg(list.toString());
                         adapter.list = list;
 
                         //主线程更新ui

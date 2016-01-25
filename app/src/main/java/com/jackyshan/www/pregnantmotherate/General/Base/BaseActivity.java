@@ -75,16 +75,16 @@ public class BaseActivity extends FragmentActivity {
     }
 
     protected void setViews() {
-    }
-
-    protected void setTitle(String text) {
-        navigationBar.setTitle(text);
         navigationBar.setOnLeftClickListener(new NavigationBar.OnLeftClickListener() {
             @Override
             public void onLeftClick() {
                 finish();
             }
         });
+    }
+
+    protected void setTitle(String text) {
+        navigationBar.setTitle(text);
     }
 
     protected void setLeftGone() {
@@ -98,6 +98,10 @@ public class BaseActivity extends FragmentActivity {
 
     protected void setLeftClick (NavigationBar.OnLeftClickListener listener){
         navigationBar.setOnLeftClickListener(listener);
+    }
+
+    protected void setMiddleClick(NavigationBar.OnMiddleClickListener listener) {
+        navigationBar.setOnMiddleClickListener(listener);
     }
 
     protected void setRightImage (int resID) {

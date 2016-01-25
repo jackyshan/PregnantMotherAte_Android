@@ -1,14 +1,16 @@
 package com.jackyshan.www.pregnantmotherate.Sections.Home.Model;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.jackyshan.www.pregnantmotherate.General.Base.BaseModel;
+import com.jackyshan.www.pregnantmotherate.General.Base.DBBaseModel;
 
 /**
  * Created by jackyshan on 1/21/16.
  */
 @Table(name = "CB_WomanRecipe", id = "id")
-public class RecipeModel extends BaseModel{
+public class RecipeModel extends DBBaseModel {
     @Column(name = "id")
     public int id;
 

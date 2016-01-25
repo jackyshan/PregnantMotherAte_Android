@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/light_gray_small"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
 
     <view
         android:id="@+id/navibar"
+        class="com.jackyshan.www.pregnantmotherate.General.Base.NavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/color_b1" />
+
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        class="com.jackyshan.www.pregnantmotherate.General.Base.NavigationBar"/>
+        android:background="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_b1" />
 
 </LinearLayout>

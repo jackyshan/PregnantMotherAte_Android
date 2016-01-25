@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionName="1.0.0"
     package="com.jackyshan.www.pregnantmotherate">
 
     <!--安装图标快捷方式-->
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <!--读设置-->
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
-    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
 
     <!-- 往SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 在SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".General.singleton.AppContext"
@@ -24,11 +23,15 @@
         android:theme="@style/AppTheme">
 
         <!--数据库-->
-        <meta-data android:name="AA_DB_NAME" android:value="db.sqlite3"/>
-        <meta-data android:name="AA_DB_VERSION" android:value="5"/>
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="db.sqlite3" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="5" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.jackyshan.www.pregnantmotherate.Sections.Home.Model.RecipeModel"/>
+            android:value="com.jackyshan.www.pregnantmotherate.Sections.Home.Model.RecipeModel" />
 
         <!--程序入口Activity-->
         <activity
@@ -41,10 +44,11 @@
             </intent-filter>
         </activity>
         <!--声明Activity-->
-        <activity android:name=".Sections.Home.Activity.HomeActivity"/>
-        <activity android:name=".Sections.Home.Next.Detail.Activity.RecipeDetailActivity"/>
-        <activity android:name=".Sections.Setting.Activity.SettingActivity"/>
-        <activity android:name=".Sections.Search.Activity.SearchActivity"/>
+        <activity android:name=".Sections.Home.Activity.HomeActivity" />
+        <activity android:name=".Sections.Home.Next.Detail.Activity.RecipeDetailActivity" />
+        <activity android:name=".Sections.Search.Activity.SearchActivity" />
+        <activity android:name=".Sections.Setting.Activity.SettingActivity" />
+        <activity android:name=".Sections.Setting.Next.Star.Activity.StarRecipesActivity" />
     </application>
 
 </manifest>

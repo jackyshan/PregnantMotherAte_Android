@@ -1,5 +1,8 @@
 package com.jackyshan.www.pregnantmotherate.General.Helper;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
@@ -130,5 +133,22 @@ public class CommonHelp {
                 defaultImageResId, defaultImageResId);
         ImageLoader imageLoader = new ImageLoader(queue, new BitmapCache());
         imageLoader.get(url, listener);
+    }
+
+    /**
+     * 获取版本号
+     * @return 当前应用的版本号
+     */
+    public static String getVersion() {
+        try {
+            Context context = AppContext.getInstance();
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            String version = info.versionName;
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 }

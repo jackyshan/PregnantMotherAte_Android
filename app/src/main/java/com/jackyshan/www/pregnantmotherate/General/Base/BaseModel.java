@@ -12,13 +12,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by jackyshan on 15/5/8.
  */
-public class BaseModel extends Model implements Serializable {
+public class BaseModel implements Serializable {
 
     public BaseModel() {
 
@@ -70,7 +71,6 @@ public class BaseModel extends Model implements Serializable {
     }
 
     public void setModelByJson(String jsonString) {
-
         Map map = JsonHelper.json2Map(jsonString);
         setModelByMap(map);
 
