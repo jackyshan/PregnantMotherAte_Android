@@ -2,6 +2,7 @@ package com.jackyshan.www.pregnantmotherate.General.Base;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.ClientError;
@@ -22,6 +23,8 @@ import com.jackyshan.www.pregnantmotherate.General.singleton.AppContext;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.IllegalFormatCodePointException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +39,8 @@ public class BaseNetwork extends BaseObject {
     protected String path;
     protected Map params;
     protected OnResultListener listener;
+    protected OnResultModelListener modelListener;
+
     //变量
     private String host = AppConfig.host;
 
@@ -79,8 +84,18 @@ public class BaseNetwork extends BaseObject {
     protected void startNetwork(int method) {
         Uri.Builder builder = Uri.parse(host + path).buildUpon();
 
+        if (params == null) {
+            params = new HashMap();
+        }
+
+        //系统参数
+        params.put("format", "json");
+        params.put("plateform", "Android");
+        params.put("version", CommonHelp.getVersion());
+        params.put("os", Build.VERSION.RELEASE);
+
         //参数
-        if (params != null && !params.isEmpty()) {
+        if (method == Request.Method.GET) {//post请求不进行拼接数据包
             Iterator<Map.Entry<String, String>> entries = params.entrySet().iterator();
 
             while (entries.hasNext()) {
@@ -91,7 +106,7 @@ public class BaseNetwork extends BaseObject {
 
         //网络请求
         logMsg("-----------网络请求开始-----------");
-//        logMsg("网络请求参数:\n" + builder.toString());
+        logMsg("网络请求URL:\n" + builder.toString());
         JSONObject jsonObject = new JSONObject(params);
         logMsg("网络请求参数:\n" + jsonObject);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(method, builder.toString(), jsonObject, new Response.Listener<JSONObject>() {
@@ -106,6 +121,7 @@ public class BaseNetwork extends BaseObject {
 //                    } else {
 //                        dealComplete(false, "返回码错误");
 //                    }
+                    dealComplete(true, response.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                     dealComplete(false, "JSON parse error");
@@ -120,7 +136,7 @@ public class BaseNetwork extends BaseObject {
                 // In this case you can check how client is forming the api and debug accordingly.
                 // For ServerError 5xx, you can do retry or handle accordingly.
                 if (error instanceof NetworkError) {
-                    dealComplete(false, "网络错误");
+                    dealComplete(false, "网络错误,有可能没开启网络访问权限");
                 } else if (error instanceof ClientError) {
                     dealComplete(false, "客户端错误");
                 } else if (error instanceof ServerError) {
@@ -150,12 +166,21 @@ public class BaseNetwork extends BaseObject {
         }
     }
 
-    //回调
+    //回调list
     public void setOnResultListener(OnResultListener listener) {
         this.listener = listener;
     }
 
     public interface OnResultListener {
         void onResult(Boolean succ, List<?> list);
+    }
+
+    //回调model
+    public void setOnResultModelListener(OnResultModelListener listener) {
+        this.modelListener = listener;
+    }
+
+    public interface OnResultModelListener {
+        void OnResult(Boolean succ, BaseModel model);
     }
 }

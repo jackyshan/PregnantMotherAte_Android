@@ -1,8 +1,12 @@
 package com.jackyshan.www.pregnantmotherate.Sections.Home.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import
         android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -10,7 +14,10 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
 import com.jackyshan.www.pregnantmotherate.General.Base.BaseActivity;
+import com.jackyshan.www.pregnantmotherate.General.Base.BaseModel;
+import com.jackyshan.www.pregnantmotherate.General.Base.BaseNetwork;
 import com.jackyshan.www.pregnantmotherate.General.Base.NavigationBar;
+import com.jackyshan.www.pregnantmotherate.General.Helper.CommonHelp;
 import com.jackyshan.www.pregnantmotherate.General.Helper.ProjectHelper;
 import com.jackyshan.www.pregnantmotherate.R;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Adapter.ChoiseAdapter;
@@ -18,6 +25,10 @@ import com.jackyshan.www.pregnantmotherate.Sections.Home.Adapter.HomeAdapter;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.DataBase.DataBaseServer;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Model.ChoiseModel;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Model.RecipeModel;
+import com.jackyshan.www.pregnantmotherate.Sections.Home.Model.VersionAdsModel;
+import com.jackyshan.www.pregnantmotherate.Sections.Home.Model.VersionUpdateModel;
+import com.jackyshan.www.pregnantmotherate.Sections.Home.Network.NWVersionAds;
+import com.jackyshan.www.pregnantmotherate.Sections.Home.Network.NWVersionUpdate;
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Next.Detail.Activity.RecipeDetailActivity;
 import com.jackyshan.www.pregnantmotherate.Sections.Search.Activity.SearchActivity;
 import com.jackyshan.www.pregnantmotherate.Sections.Setting.Activity.SettingActivity;
@@ -116,6 +127,9 @@ public class HomeActivity extends BaseActivity {
         catch (Exception e) {
             logMsg(e.getMessage());
         }
+
+        //更新&广告
+        updateAdsAndApp();
     }
 
     private void  updateData(ChoiseModel model) {
@@ -142,5 +156,83 @@ public class HomeActivity extends BaseActivity {
             }
                 break;
         }
+    }
+
+    private void updateAdsAndApp() {
+        NWVersionUpdate versionUpdate = new NWVersionUpdate();
+        versionUpdate.setOnResultModelListener(new BaseNetwork.OnResultModelListener() {
+            @Override
+            public void OnResult(Boolean succ, final BaseModel model) {
+                final VersionUpdateModel versionUpdateModel = (VersionUpdateModel)model;
+
+                if (!versionUpdateModel.active || versionUpdateModel.androidNewestVersion.compareTo(CommonHelp.getVersion()) <= 0) {
+                    return;
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setTitle(versionUpdateModel.title);
+                builder.setMessage(versionUpdateModel.androidMessage);
+
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //goto download url
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(versionUpdateModel.androidUrl));
+                        startActivity(intent);
+
+                        if (versionUpdateModel.mustUpdate) {
+                            return;
+                        }
+
+                        dialog.dismiss();
+                    }
+                });
+
+                if (versionUpdateModel.mustUpdate) {
+                    builder.create().show();
+                    return;
+                }
+
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+            }
+        });
+        versionUpdate.startRequest(null);
+
+        NWVersionAds versionAds = new NWVersionAds();
+        versionAds.setOnResultModelListener(new BaseNetwork.OnResultModelListener() {
+            @Override
+            public void OnResult(Boolean succ, BaseModel model) {
+                final VersionAdsModel versionAdsModel = (VersionAdsModel)model;
+                if (!versionAdsModel.active) return;
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setTitle(versionAdsModel.title);
+                builder.setMessage(versionAdsModel.message);
+                builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(versionAdsModel.androidUrl));
+                        startActivity(intent);
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        versionAds.startRequest(null);
     }
 }

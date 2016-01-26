@@ -33,7 +33,7 @@ public class AppConfig {
     public static final String logPath = appMainPath + "log" + File.separator;
 
     //host
-    public static final String host = "http://www.weather.com.cn/";
+    public static final String host = "http://139.162.4.196:5002/";
 
     //config
     public static final String APP_ID = "wx37a6f261598ba82e";
