@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.jackyshan.www.pregnantmotherate.General.Config.LogUtil;
 import com.jackyshan.www.pregnantmotherate.General.singleton.AppContext;
 import com.jackyshan.www.pregnantmotherate.R;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,18 @@ public class BaseActivity extends FragmentActivity {
 
     protected void logErr(Exception ex) {
         LogUtil.LogErr(this.getClass(), ex);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
     @Override
