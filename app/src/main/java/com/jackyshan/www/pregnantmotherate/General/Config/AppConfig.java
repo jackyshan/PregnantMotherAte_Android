@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Parcelable;
 
+import com.baidu.mobads.AdView;
 import com.jackyshan.www.pregnantmotherate.General.singleton.AppContext;
 import com.jackyshan.www.pregnantmotherate.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -36,11 +37,6 @@ public class AppConfig {
     //host
     public static final String host = "http://139.162.4.196:5002/";
 
-    //umeng
-    private static final String UMENG_APP_KEY = "56a7302967e58eafcb000a53";
-    private static final String UMENG_CHANNEL_ID = "android store";
-    private static final String ADMOB_ID = "ca-app-pub-1989497899333594/8362703863";
-
     //变量定义
     private static Context context;
     private static SharedPreferences userInfo;
@@ -53,10 +49,6 @@ public class AppConfig {
 
         //Android-Universal-Image-Loader 第三方图片库初始化
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
-
-        //umeng初始化
-        AnalyticsConfig.setAppkey(context, UMENG_APP_KEY);
-        AnalyticsConfig.setChannel(UMENG_CHANNEL_ID);
 
         //桌面图标
         addShortcut();

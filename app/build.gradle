@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'jackyshan'
+            keyPassword 'jackyshan123'
+            storeFile file('/Users/jackyshan/Downloads/pregnantmotherate.jks')
+            storePassword 'jackyshan123'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "22.0.0"
-
     defaultConfig {
         applicationId "com.jackyshan.www.pregnantmotherate"
         minSdkVersion 16
@@ -13,9 +20,24 @@ android {
     }
     buildTypes {
         release {
+            //指定签名为release
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
+
+        xiaomi {}
+        wandoujia {}
+        baidu {}
+        c360 {}
+        uc {}
+
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+
     }
 }
 
@@ -35,4 +57,5 @@ dependencies {
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/activeandroid-3.1.0-SNAPSHOT.jar')
     compile files('libs/umeng-analytics-v5.6.1.jar')
+    compile files('libs/Baidu_MobAds_SDK.jar')
 }

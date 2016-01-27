@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <!--网络访问权限-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--检测联网方式，区分用户设备使用的是2G、3G或是WiFi-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
@@ -23,6 +23,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!--获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户。-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
+    <!--获得定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".General.singleton.AppContext"
@@ -43,6 +46,19 @@
             android:name="AA_MODELS"
             android:value="com.jackyshan.www.pregnantmotherate.Sections.Home.Model.RecipeModel" />
 
+        <!--友盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56a7302967e58eafcb000a53" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <!--百度广告-->
+        <meta-data
+            android:name="BaiduMobAd_APP_ID"
+            android:value="f8fb8d0f" />
+
         <!--程序入口Activity-->
         <activity
             android:name=".General.Config.WelcomeActivity"
@@ -53,6 +69,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--百度Activity-->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
         <!--声明Activity-->
         <activity android:name=".Sections.Home.Activity.HomeActivity" />
         <activity android:name=".Sections.Home.Next.Detail.Activity.RecipeDetailActivity" />

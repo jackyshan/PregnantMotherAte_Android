@@ -2,17 +2,13 @@ package com.jackyshan.www.pregnantmotherate.Sections.Home.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import
-        android.content.Intent;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-
 import com.jackyshan.www.pregnantmotherate.General.Base.BaseActivity;
 import com.jackyshan.www.pregnantmotherate.General.Base.BaseModel;
 import com.jackyshan.www.pregnantmotherate.General.Base.BaseNetwork;
@@ -32,6 +28,8 @@ import com.jackyshan.www.pregnantmotherate.Sections.Home.Network.NWVersionUpdate
 import com.jackyshan.www.pregnantmotherate.Sections.Home.Next.Detail.Activity.RecipeDetailActivity;
 import com.jackyshan.www.pregnantmotherate.Sections.Search.Activity.SearchActivity;
 import com.jackyshan.www.pregnantmotherate.Sections.Setting.Activity.SettingActivity;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -130,6 +128,9 @@ public class HomeActivity extends BaseActivity {
 
         //更新&广告
         updateAdsAndApp();
+
+        //百度广告
+
     }
 
     private void  updateData(ChoiseModel model) {
