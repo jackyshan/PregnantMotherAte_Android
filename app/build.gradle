@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'jackyshan'
             keyPassword 'jackyshan123'
-            storeFile file('/Users/jackyshan/Downloads/pregnantmotherate.jks')
+            storeFile file('pregnantmotherate.jks')
             storePassword 'jackyshan123'
         }
     }
@@ -41,10 +41,10 @@ android {
     }
 }
 
-//repositories {
-//    mavenCentral()
-//    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-//}
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
 
 
 dependencies {
